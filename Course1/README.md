@@ -4,3 +4,5 @@
   - recfun - **Done**
 * Week 2
   - funsets - **Done**
+* Week 3
+  - objsets - **Done**
