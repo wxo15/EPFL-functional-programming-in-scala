@@ -6,3 +6,5 @@
   - funsets - **Done**
 * Week 3
   - objsets - **Done**
+* Week 4
+  - patmat - **Done**
