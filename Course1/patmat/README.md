@@ -10,7 +10,7 @@ The leaf nodes have associated with them a weight which denotes the frequency of
 
 Every branching node of the code tree can be thought of as a set containing the characters present in the leaves below it. The weight of a branching node is the total weight of the leaves below it: this information is necessary for the construction of the tree.
 
-![Huffman table](https://github.com/wxo15/EPFL-functional-programming-in-scala/tree/main/Course1/patmat/huffman-table.png)
+![Huffman table](https://github.com/wxo15/EPFL-functional-programming-in-scala/blob/main/Course1/patmat/huffman-table.png)
 
 Note that a given encoding is only optimal if the character frequencies in the encoded text match the weights in the code tree.
 
