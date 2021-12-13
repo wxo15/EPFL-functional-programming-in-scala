@@ -179,8 +179,7 @@ trait DecoderInstances:
   // TODO Define a given value of type `Decoder[Int]`
   given Decoder[Int] =
     Decoder.fromPartialFunction { 
-      // not sure whats the default for this if it is not an integer
-      case Json.Num(x) => (if (x.isValidInt) then x.toInt else throw new RuntimeException("Non-integer detected"))
+      case Json.Num(x) if x.isValidInt => x.toInt
     }
 
   /** A decoder for `String` values */
