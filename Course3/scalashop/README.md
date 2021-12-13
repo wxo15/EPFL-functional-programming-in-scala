@@ -76,7 +76,7 @@ We can now implement the parallel box blur filter. Note that the boxBlurKernel m
 
 There are many different ways we can do agglomeration for the parallel box blur. One is to divide the image into a fixed number of equally wide vertical strips. For each strip, we start a parallel task, and wait for their completion. Within each strip, we traverse the pixels going from the top to the bottom of the image, as illustrated in the following figure:
 
-![mapping](https://github.com/wxo15/EPFL-functional-programming-in-scala/blob/main/Course3/scalashop/vertical.png)
+![vertical](https://github.com/wxo15/EPFL-functional-programming-in-scala/blob/main/Course3/scalashop/vertical.png)
 
 We start by implementing the sequential blur method in the VerticalBoxBlur.scala source file, which takes the source image src, the destination image dst, the starting (included) and ending (excluded) x coordinates (i.e, column indices) of the strip, called from and end, and the blur radius. The blur method blurs the pixels from the src image and writes them to the dst image:
 
@@ -96,7 +96,7 @@ Change the number of tasks and the radius parameter. How does the performance ch
 ## Horizontal Stripping Box Blur
 In this part of the exercise we will pick an alternative agglomeration for the box blur algorithm. Instead of dividing the image into vertical strips, we will divide it into horizontal strips in a similar way:
 
-
+![horizontal](https://github.com/wxo15/EPFL-functional-programming-in-scala/blob/main/Course3/scalashop/horizontal.png)
 We implement the two methods, blur and parBlur in a similar way as before:
 
 ```
