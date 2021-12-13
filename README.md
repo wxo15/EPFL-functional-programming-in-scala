@@ -4,8 +4,8 @@
 
 ## Courses:
 * [Course 1](https://www.coursera.org/learn/scala-functional-programming) - Functional Programming Principles in Scala - **Done**
-* [Course 2](https://www.coursera.org/learn/scala-functional-program-design) - Functional Program Design in Scala - **Progressing**
-* [Course 3](https://www.coursera.org/learn/scala-parallel-programming) - Parallel programming - **Not Done**
+* [Course 2](https://www.coursera.org/learn/scala-functional-program-design) - Functional Program Design in Scala - **Done**
+* [Course 3](https://www.coursera.org/learn/scala-parallel-programming) - Parallel programming - **Progressing**
 * [Course 4](https://www.coursera.org/learn/scala-spark-big-data) - Big Data Analysis with Scala and Spark - **Not Done**
 * [Course 5](https://www.coursera.org/learn/scala-capstone) - Functional Programming in Scala Capstone - **Not Done**
 
@@ -32,4 +32,10 @@
 - Week 3: Type-Directed Programming
 - Week 4: Functions and State
 - Week 5: Timely Effect
+
+### 3. Parallel Programming
+- Week 1: Parallel Programming
+- Week 2: Basic Task Parallel Algorithm
+- Week 3: Data-Parallelism
+- Week 4: Data Structures for Parallel Computing
 
