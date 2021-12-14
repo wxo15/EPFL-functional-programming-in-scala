@@ -127,11 +127,13 @@ And now for the fun part -- the K-means algorithm has a lot of use-cases!
 In image processing applications, it can be used to reduce the size of the color palette, thus compressing the image. This is done by turning a true color image, where each pixel is encoded into 32 bits, into indexed color, where each pixel can be encoded with just a few bits. This is done by using k-means to "cluster" the important colors in the image, thus reducing its palette from 24-bit (2^24 colors) to just 32 indexed colors, chosen from the 24-bit palette. Here, pixels from the image are the input vectors, and their coordinates are the different color channels.
 
 This is the original true color (24-bit) image:
+
 ![start](https://github.com/wxo15/EPFL-functional-programming-in-scala/blob/main/Course3/kmeans/start.png)
 
 And this is the indexed color (32 colors) version of it:
 
 ![steps](https://github.com/wxo15/EPFL-functional-programming-in-scala/blob/main/Course3/kmeans/steps.png)
+
 So, thanks to your k-means implementation, ScalaShop can now compress images! You can start ScalaShop by invoking:
 
 `> run-main kmeans.fun.ScalaShop`
