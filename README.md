@@ -6,7 +6,7 @@
 * [Course 1](https://www.coursera.org/learn/scala-functional-programming) - Functional Programming Principles in Scala - **Done**
 * [Course 2](https://www.coursera.org/learn/scala-functional-program-design) - Functional Program Design in Scala - **Done**
 * [Course 3](https://www.coursera.org/learn/scala-parallel-programming) - Parallel programming - **Done**
-* [Course 4](https://www.coursera.org/learn/scala-spark-big-data) - Big Data Analysis with Scala and Spark - **Not Done**
+* [Course 4](https://www.coursera.org/learn/scala-spark-big-data) - Big Data Analysis with Scala and Spark - **Progressing**
 * [Course 5](https://www.coursera.org/learn/scala-capstone) - Functional Programming in Scala Capstone - **Not Done**
 
 ## Useful Materials
