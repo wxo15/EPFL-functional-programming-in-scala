@@ -39,3 +39,8 @@
 - Week 3: Data-Parallelism
 - Week 4: Data Structures for Parallel Computing
 
+### 4. Big Data Analysis with Scala and Spark
+- Week 1: Getting Started + Spark Basics
+- Week 2: Reduction Operations & Distributed Key-Value Pairs
+- Week 3: Partitioning and Shuffling
+- Week 4: Structured data: SQL, Dataframes, and Datasets
