@@ -15,6 +15,7 @@ object Visualization extends VisualizationInterface {
     */
   
   def degToRad(x: Double): Double = x * Pi / 180
+  def radToDeg(x: Double): Double = x * 180 / Pi
 
   def predictTemperature(temperatures: Iterable[(Location, Temperature)], location: Location): Temperature = {
     def relativeDist(a: Location, b: Location): Double = {
