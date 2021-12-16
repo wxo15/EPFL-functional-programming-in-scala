@@ -18,12 +18,14 @@ object Visualization2 extends Visualization2Interface {
     */
   def bilinearInterpolation(
     point: CellPoint,
-    d00: Temperature,
+    d00: Temperature, 
     d01: Temperature,
     d10: Temperature,
     d11: Temperature
   ): Temperature = {
-    ???
+    val x0 = point.x * (d10 - d00) + d00 
+    val x1 = point.x * (d11 - d01) + d01
+    point.y * (x1 - x0) + x0
   }
 
   /**
@@ -37,7 +39,34 @@ object Visualization2 extends Visualization2Interface {
     colors: Iterable[(Temperature, Color)],
     tile: Tile
   ): Image = {
-    ???
+
+    def getBiInterpolation(location: Location): Temperature = {
+      val lat = location.lat.toInt
+      val lon = location.lon.toInt
+      val d00 = grid(GridLocation(lat, lon))
+      val d01 = grid(GridLocation(lat + 1, lon))
+      val d10 = grid(GridLocation(lat, lon + 1))
+      val d11 = grid(GridLocation(lat + 1, lon + 1))
+      bilinearInterpolation(CellPoint(location.lon - lon, location.lat - lat), d00, d01, d10, d11)
+    }
+
+    val offX = tile.x * 256
+    val offY = tile.y * 256
+    val offZ = tile.zoom
+    val coords = for {
+      i <- 0 until 256
+      j <- 0 until 256
+    } yield (i, j)
+
+    val pixels = coords.par
+      .map({case (y, x) => Tile(x + offX, y + offY, 8 + offZ)})
+      .map(Interaction.tileLocation)
+      .map(getBiInterpolation)
+      .map(Visualization.interpolateColor(colors, _))
+      .map(color => Pixel(color.red, color.green, color.blue, 127))
+      .toArray
+
+    Image(256, 256, pixels)
   }
 
 }
