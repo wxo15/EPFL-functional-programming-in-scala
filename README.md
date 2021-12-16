@@ -7,7 +7,7 @@
 * [Course 2](https://www.coursera.org/learn/scala-functional-program-design) - Functional Program Design in Scala - **Done**
 * [Course 3](https://www.coursera.org/learn/scala-parallel-programming) - Parallel programming - **Done**
 * [Course 4](https://www.coursera.org/learn/scala-spark-big-data) - Big Data Analysis with Scala and Spark - **Done**
-* [Course 5](https://www.coursera.org/learn/scala-capstone) - Functional Programming in Scala Capstone - **Not Done**
+* [Course 5](https://www.coursera.org/learn/scala-capstone) - Functional Programming in Scala Capstone - **Progressing**
 
 ## Useful Materials
 - Cheat Sheet: https://github.com/lampepfl/progfun-wiki/blob/gh-pages/CheatSheet.md
