@@ -3,7 +3,9 @@
 *~
 *.class
 *.tasty
-target/
+target/*
+project/target
+project/project/target
 logs/
 .bloop
 .dotty-ide-artifact
@@ -14,3 +16,9 @@ logs/
 *.csv
 *.dat
 src/main/resources/
+
+# Keep generated images
+!target/temperatures/
+!target/deviations/
+!target/temperatures/*
+!target/deviations/*

@@ -7,4 +7,4 @@
 | 3 | [Interactive visualization](https://github.com/wxo15/EPFL-functional-programming-in-scala/blob/main/Course5/observatory/3.-Interactive-visualization.md) | :heavy_check_mark: |
 | 4 | [Data manipulation](https://github.com/wxo15/EPFL-functional-programming-in-scala/blob/main/Course5/observatory/4.-Data-manipulation.md) | :heavy_check_mark: |
 | 5 | [Value-added information visualization](https://github.com/wxo15/EPFL-functional-programming-in-scala/blob/main/Course5/observatory/5.-Value-added-information-visualization.md) | :heavy_check_mark: |
-| 6 | [Interactive user interface](https://github.com/wxo15/EPFL-functional-programming-in-scala/blob/main/Course5/observatory/6.-Interactive-user-interface.md) |  |
+| 6 | [Interactive user interface](https://github.com/wxo15/EPFL-functional-programming-in-scala/blob/main/Course5/observatory/6.-Interactive-user-interface.md) | :heavy_check_mark: |

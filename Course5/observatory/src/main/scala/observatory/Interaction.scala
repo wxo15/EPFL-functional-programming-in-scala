@@ -8,6 +8,10 @@ import scala.math._
   */
 object Interaction extends InteractionInterface {
 
+  val power = 6
+  val height = pow(2, power).toInt
+  val width = pow(2, power).toInt
+
   /**
     * @param tile Tile coordinates
     * @return The latitude and longitude of the top-left corner of the tile, as per http://wiki.openstreetmap.org/wiki/Slippy_map_tilenames
@@ -25,23 +29,23 @@ object Interaction extends InteractionInterface {
     * @return A 256×256 image showing the contents of the given tile
     */
   def tile(temperatures: Iterable[(Location, Temperature)], colors: Iterable[(Temperature, Color)], tile: Tile): Image = {
-    val offX = tile.x * 256
-    val offY = tile.y * 256
+    val offX = tile.x * width
+    val offY = tile.y * height
     val offZ = tile.zoom
     val coords = for {
-      i <- 0 until 256
-      j <- 0 until 256
+      i <- 0 until height
+      j <- 0 until width
     } yield (i, j)
 
     val pixels = coords.par
-      .map({case (y, x) => Tile(x + offX, y + offY, 8 + offZ)})
+      .map({case (y, x) => Tile(x + offX, y + offY, power + offZ)})
       .map(tileLocation)
       .map(Visualization.predictTemperature(temperatures, _))
       .map(Visualization.interpolateColor(colors, _))
       .map(color => Pixel(color.red, color.green, color.blue, 127))
       .toArray
 
-    Image(256, 256, pixels)
+    Image(width, height, pixels)
   }
 
   /**
@@ -57,7 +61,7 @@ object Interaction extends InteractionInterface {
   ): Unit = {
     for {
       (year, data) <- yearlyData
-      zoom <- 0 to 3
+      zoom <- 0 to 2 // should be 0 to 3, but I am doing 0 to 2 to cut down processing time
       y <- 0 until pow(2, zoom).toInt
       x <- 0 until pow(2, zoom).toInt
     } 

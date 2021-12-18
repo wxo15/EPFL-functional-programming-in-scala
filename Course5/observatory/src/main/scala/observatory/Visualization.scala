@@ -25,7 +25,7 @@ object Visualization extends VisualizationInterface {
         val dLambda = degToRad(a.lon - b.lon)
         val (phi1, phi2) = (degToRad(a.lat), degToRad(b.lat))
 
-        acos(sin(phi1) * sin(phi2) + cos(phi1) * cos(phi2) * cos(dLambda))
+        6371 * acos(sin(phi1) * sin(phi2) + cos(phi1) * cos(phi2) * cos(dLambda)) // radius of earth = 6371km
       }
     }
     def averageTemperatures(input: Iterable[(Double, Temperature)]): Temperature = {
@@ -33,11 +33,11 @@ object Visualization extends VisualizationInterface {
       def seqOp(wt: WeightedTemperature, k: (Double, Temperature)): WeightedTemperature = {
         val distance: Double = k._1
         if (wt._2.isInfinite) {
-          if (abs(distance) < 1e-6) (wt._1 + k._2, Double.PositiveInfinity, wt._3 + 1) else wt
+          if (abs(distance) < 1) (wt._1 + k._2, Double.PositiveInfinity, wt._3 + 1) else wt
         } else {
-          if (abs(distance) < 1e-6) (k._2, Double.PositiveInfinity, 1)
+          if (abs(distance) < 1) (k._2, Double.PositiveInfinity, 1)
           else {
-            val w = 1.0 / pow(distance, 2)
+            val w = 1.0 / pow(distance, 6) //p value
             (wt._1 + w * k._2, wt._2 + w, 0)
           }
         }

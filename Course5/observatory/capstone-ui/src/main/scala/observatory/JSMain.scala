@@ -32,8 +32,8 @@ object JSMain {
 
   def setupMap(selectedLayer: Signal[Layer], selectedYear: Signal[Int]): Unit = {
     val mapElement = tags.div(styles.height := "100%").render
-    val map = L.map(mapElement, MapOptions(zoomControl = false, maxZoom = 3))
-    map.setView(L.latLng(48.0, 14.0), 3)
+    val map = L.map(mapElement, new MapOptions(false, 2))
+    map.setView(L.latLng(0.0, 0.0), 2)
     L.tileLayer("https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png").addTo(map)
     val urlSignal = Interaction2.layerUrlPattern(selectedLayer, selectedYear)
     val layer = L.tileLayer(urlSignal())
@@ -41,7 +41,7 @@ object JSMain {
     Signal {
       layer.setUrl(urlSignal())
     }
-    map.addControl(L.control.zoom(ZoomOptions(position = "bottomright")))
+    //map.addControl(L.control.zoom(ZoomOptions(position = "bottomright")))
     document.body.appendChild(mapElement.render)
     map.invalidateSize()
   }
@@ -61,11 +61,12 @@ object JSMain {
       )
     val root =
       tags.div(
+        styles.textAlign := "center",
         styles.position.absolute,
         styles.top := 0,
-        styles.right := 0,
-        styles.left := 0,
-        styles.height := 2.em,
+        styles.right := 10.em,
+        styles.left := 10.em,
+        //styles.height := 2.em,
         styles.zIndex := 1500
       )(
         for (layer <- availableLayers) yield {
@@ -80,18 +81,19 @@ object JSMain {
 
   def makeSlider(selectedLayer: Signal[Layer]): (Frag, Signal[Int]) = {
     val yearBounds = Interaction2.yearBounds(selectedLayer)
-    val sliderValue = Var[Int](yearBounds().max)
+    val sliderValue = Var[Int](yearBounds().min)
     val input = Signal {
       tags.input(
         attrs.`type` := "range",
         attrs.min := yearBounds().min,
         attrs.max := yearBounds().max,
-        attrs.value := yearBounds().max,
+        attrs.step := yearBounds().step,
+        attrs.value := yearBounds().min,
         attrs.onchange := { (ev: Event) =>
           val input = ev.target.asInstanceOf[Input]
           sliderValue.update(input.value.toInt)
         },
-        styles.width := 40.em
+        styles.width := 20.em
       )
     }
 
@@ -123,6 +125,7 @@ object JSMain {
     Signal {
       tags.div(
         styles.position.absolute,
+        styles.border := "solid 1px",
         styles.top := 5.px,
         styles.right := 5.px,
         styles.zIndex := 1500,

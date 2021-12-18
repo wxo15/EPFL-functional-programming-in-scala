@@ -9,7 +9,7 @@ import scala.io.Source
   */
 object Extraction extends ExtractionInterface {
 
-  @transient lazy val conf: SparkConf = new SparkConf().setMaster("local").setAppName("StackOverflow")
+  @transient lazy val conf: SparkConf = new SparkConf().setMaster("local").setAppName("Climate Observatory")
   @transient lazy val sc: SparkContext = new SparkContext(conf)
   sc.setLogLevel("WARN")
 

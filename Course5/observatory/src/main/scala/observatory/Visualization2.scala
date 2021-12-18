@@ -1,11 +1,15 @@
 package observatory
 
 import com.sksamuel.scrimage.{Image, Pixel}
-
+import scala.math._
 /**
   * 5th milestone: value-added information visualization
   */
 object Visualization2 extends Visualization2Interface {
+
+  val power = 6
+  val height = pow(2, power).toInt
+  val width = pow(2, power).toInt
 
   /**
     * @param point (x, y) coordinates of a point in the grid cell
@@ -50,23 +54,23 @@ object Visualization2 extends Visualization2Interface {
       bilinearInterpolation(CellPoint(location.lon - lon, location.lat - lat), d00, d01, d10, d11)
     }
 
-    val offX = tile.x * 256
-    val offY = tile.y * 256
+    val offX = tile.x * width
+    val offY = tile.y * height
     val offZ = tile.zoom
     val coords = for {
-      i <- 0 until 256
-      j <- 0 until 256
+      i <- 0 until height
+      j <- 0 until width
     } yield (i, j)
 
     val pixels = coords.par
-      .map({case (y, x) => Tile(x + offX, y + offY, 8 + offZ)})
+      .map({case (y, x) => Tile(x + offX, y + offY, power + offZ)})
       .map(Interaction.tileLocation)
       .map(getBiInterpolation)
       .map(Visualization.interpolateColor(colors, _))
       .map(color => Pixel(color.red, color.green, color.blue, 127))
       .toArray
 
-    Image(256, 256, pixels)
+    Image(width, height, pixels)
   }
 
 }
