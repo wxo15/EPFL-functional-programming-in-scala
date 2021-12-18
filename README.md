@@ -7,7 +7,7 @@
 
 Implementaton of an interactive visualisation of global temperature and temperature deviation data over time. Milestones can be accessed [here](https://github.com/wxo15/EPFL-functional-programming-in-scala/blob/main/Course5/README.md)
 
-![Dataset](https://moocs.scala-lang.org/files/scala-capstone-data.zip) provided by the course, which comes from the National Center for Environmental Information of the United States.
+[Dataset](https://moocs.scala-lang.org/files/scala-capstone-data.zip) provided by the course, which comes from the National Center for Environmental Information of the United States.
 
 ### Screenshots
 ![temperature](https://github.com/wxo15/EPFL-functional-programming-in-scala/blob/main/Course5/observatory/screenshots/temperature.png)
