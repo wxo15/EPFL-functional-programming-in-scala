@@ -2,6 +2,7 @@
 
 [Functional Programming in Scala Specialization](https://www.coursera.org/specializations/scala) offered by École Polytechnique Fédérale de Lausanne (EPFL) through Coursera.
 
+Certificate: [Link](https://coursera.org/share/42ff16cf2b636b79e755942c4d0b6c5f)
 
 ## Capstone Project
 
